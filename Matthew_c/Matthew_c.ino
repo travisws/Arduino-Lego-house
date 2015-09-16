@@ -6,38 +6,71 @@ int ranNum2;
 int ranDel1;
 int ranDel2;
 
+int z = 0;
+
+const int buttonPin = 2;
+
+int buttonState = 0;
+
 void setup() {
-// Seed RNG from analog port.
-randomSeed(analogRead(0));
-// Setup 8 output ports for LED's
-pinMode(7, OUTPUT);
-pinMode(8, OUTPUT);
-pinMode(9, OUTPUT);
-pinMode(10, OUTPUT);
-pinMode(11, OUTPUT);
-pinMode(12, OUTPUT);
-pinMode(13, OUTPUT);
+    //Seed RNG from analog port.
+  randomSeed(analogRead(0));
+    //Setup 8 output ports for LED's
+  pinMode(3, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+    //Initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
 }
 void loop() {
-   //Generate random number between X and Y
-   ranNum1=random(7,14);
-   ranNum2=random(7,14);
-   // Generate random delay time
-   ranDel1=random(100, 300);
-   ranDel2=random(100, 150);
-   //Turn on the LED
-   digitalWrite(ranNum1, HIGH);
-   delay(ranDel1);
-
-   analogWrite(3, TrueRandom.random(1,255));
-   
-   if ( ranNum2 >= 9) {
-     digitalWrite(ranNum2, HIGH);
-     delay(ranDel2 + ranDel1);
-     digitalWrite(ranNum1, LOW);
-   }
-   //Turn off the LED
-   digitalWrite(ranNum1, LOW);
+     //Generate random number between X and Y
+  ranNum1 = random(7,14);
+  ranNum2 = random(7,14);
+     //Generate random delay time
+  ranDel1 = random(25, 100);
+  ranDel2 = random(10, 150); 
   
+  buttonState = digitalRead(buttonPin);
+   //Turn off LED
+  if (buttonState == HIGH){
+    z + 1;
+  }
+  
+  if (z == 2){
+	//Night Light's and fireplace
+	int x = 0;
+        while (x < 10 ){
+	analogWrite(3, TrueRandom.random(1,255));
+	analogWrite(9, TrueRandom.random(13,155));
+	analogWrite(10, TrueRandom.random(60,205));
+	analogWrite(11, TrueRandom.random(1,70));
+	delay(100);
+        x++;
+	}
+   }else if (buttonState == 2){
+		//Door opening/closing and if possidle shiny water
+   
+   }else if (buttonState == 3){
+		//Random
+	  digitalWrite(ranNum1, HIGH);
+	  delay(ranDel1);
+   
+	  if ( ranNum2 >= 9) {
+	    digitalWrite(ranNum2, HIGH);
+	    delay(ranDel2);
+	    digitalWrite(ranNum2, LOW);
+	   }
+   
+   }else if (buttonState == 4){
+   		//Reset
+   }else{
+   
+   }
+   
 }
 
