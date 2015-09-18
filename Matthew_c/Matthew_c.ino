@@ -38,7 +38,8 @@ void loop() {
   buttonState = digitalRead(buttonPin);
    //Turn off LED
   if (buttonState == HIGH){
-    z + 1;
+    analogWrite(3, TrueRandom.random(1,255));
+    z = z + 1;
   }
   
   if (z == 2){
