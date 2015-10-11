@@ -9,11 +9,9 @@ int pos = 0;
 void setup() {
     //Seed RNG from analog port.
   randomSeed(analogRead(0));
-<<<<<<< HEAD
   myservo.attach(10);
   
   pinMode(3, OUTPUT);
-  //pinMode(10, OUTPUT);
   pinMode(11, OUTPUT); 
 }
 
