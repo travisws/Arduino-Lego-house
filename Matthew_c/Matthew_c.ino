@@ -26,13 +26,13 @@ void loop() {
   }
    
  for (pos = 30; pos >= 0; pos -= 1) {
-    myservo.write(pos);
-    // tell servo to go to position in variable 'pos'
-    analogWrite(3, TrueRandom.random(60,105));  
-    //analogWrite(10, TrueRandom.random(60,205));
-    analogWrite(11, TrueRandom.random(1,15)); 
-    delay(15);                     
-=======
+   myservo.write(pos);
+   // tell servo to go to position in variable 'pos'
+  analogWrite(3, TrueRandom.random(60,105));  
+  //analogWrite(10, TrueRandom.random(60,205));
+  analogWrite(11, TrueRandom.random(1,15)); 
+  delay(15);                     
+
   myservo.attach(2);
   
   pinMode(3, OUTPUT);
@@ -56,7 +56,7 @@ void loop() {
     analogWrite(5, TrueRandom.random(60,205));
     analogWrite(6, TrueRandom.random(15,70)); 
     delay(5);                     
->>>>>>> 3aecd53c565332d809033c2bf8a5ea497a916bae
+
   }
 }
 
